@@ -5,6 +5,9 @@ import Contact from '../../contact/containers/Contact'
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { NavLink } from 'react-router-dom'
+import { Row, Col, Grid, Navbar, Nav, NavItem} from 'react-bootstrap'
+
 
 class App extends Component {
 
@@ -12,13 +15,24 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <Navbar inverse collapseOnSelect>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <img src={logo} className="App-logo" alt="logo" />
+              </Navbar.Brand>
+            </Navbar.Header>
+            <Navbar>
+              <Nav pullRight>
+                <NavItem eventKey={1} href="/form">
+                  Form
+                </NavItem>
+                <NavItem eventKey={2} href="/contact">
+                Contact
+                </NavItem>
+              </Nav>
+            </Navbar>
+          </Navbar>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Contact />
       </div>
     );
   }

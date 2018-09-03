@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getUsers } from '../actions'
-
+import _ from 'lodash'
 import { connect } from 'react-redux';
 
 
@@ -14,7 +14,7 @@ class Contact extends Component {
     return (
       <div className="App">
         <ul>
-
+          { _.map(this.props.users, (user) => {return <li key={user.id}>{user.name}</li>})}
         </ul>
       </div>
     );

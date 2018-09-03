@@ -11,8 +11,14 @@ import ReduxPromise from 'redux-promise'
 import thunkMiddleware from 'redux-thunk'
 import reducers from './contact/reducers/index'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 import './index.css';
-import App from './app/containers/App';
+import App from './app/containers/App'
+import Form from './form/container/Form'
+import Contact from './contact/containers/Contact'
 import registerServiceWorker from './registerServiceWorker';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, thunkMiddleware)(createStore);
@@ -37,6 +43,8 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={App}/>
+        <Route exact path="/form" component={Form}/>
+        <Route exact path="/contact" component={Contact}/>
       </Switch>
     </BrowserRouter>
   </Provider>, document.getElementById('root'));
